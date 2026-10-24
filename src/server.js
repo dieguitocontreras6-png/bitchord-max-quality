@@ -5,16 +5,14 @@ import { createLogger } from './log.js';
 import { TtlCache } from './cache.js';
 import { createHttp } from './http.js';
 import { buildSources } from './sources/index.js';
-import { createService } from './service.js';
-
+ 
 const VERSION = '1.0.0';
 
 export function createApp({ cfg = loadConfig(), fetchImpl, log = createLogger(cfg.logLevel) } = {}) {
   const ua = `BitChordMaxQuality/${VERSION} (+${cfg.contact})`;
   const client = createHttp({ fetchImpl, userAgent: ua, timeoutMs: cfg.httpTimeoutMs, retries: cfg.httpRetries, minIntervalMs: cfg.minIntervalMs });
   const cache = new TtlCache({ max: 1000 });
-  const sources = buildSources({ cfg, http: client, cache, log });
-  const service = createService({ cfg, http: client, cache, log, sources });
+  const sources = buildSources({ cfg, http: client, cache, log });  
 
   const manifest = {
     id: 'dev.bitchord.max-quality', name: 'Max Quality', version: VERSION, resources: ['search', 'stream'],
