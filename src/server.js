@@ -79,7 +79,7 @@ export function createApp({ cfg = loadConfig(), fetchImpl, log = createLogger(cf
     }
   });
   server.on('close', () => clearInterval(sweep));
-  return { server, sources, service, cfg };
+  return { server, sources, cfg };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
