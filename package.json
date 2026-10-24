@@ -1,0 +1,14 @@
+{
+  "name": "bitchord-max-quality",
+  "version": "1.0.0",
+  "description": "Addon de BitChord que busca en varias fuentes autorizadas y elige la mejor calidad de audio realmente verificable.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "test:integration": "RUN_INTEGRATION=1 node --test test/integration/*.test.js"
+  },
+  "license": "GPL-3.0-or-later"
+}
