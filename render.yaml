@@ -1,0 +1,21 @@
+# Render Blueprint — one-click deploy of the OpenLossless BitChord addon.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: openlossless-bitchord-addon
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Playback only. Turn on ONLY if you accept the provider-licensing
+      # responsibility (see README).
+      - key: ALLOW_DOWNLOADS
+        value: "false"
+      - key: STRICT_LICENSES
+        value: "true"
+      - key: IA_MAX_ITEMS
+        value: "10"
