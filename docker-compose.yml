@@ -1,0 +1,12 @@
+services:
+  openlossless-bitchord-addon:
+    build: .
+    image: openlossless-bitchord-addon:1.0.0
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: "8787"
+      # Playback only by default (provider-licensing principle).
+      ALLOW_DOWNLOADS: "false"
+      STRICT_LICENSES: "true"
+    restart: unless-stopped
