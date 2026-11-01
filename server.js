@@ -20,13 +20,13 @@
 const http = require('http');
 const { Readable } = require('stream');
 
-const config = require('./src/config');
-const { TTLCache } = require('./src/cache');
-const ia = require('./src/ia');
-const flac = require('./src/flac');
-const mappers = require('./src/mappers');
-const hosts = require('./src/hosts');
-const { decodeId } = require('./src/util');
+const config = require('./config');
+const { TTLCache } = require('./cache');
+const ia = require('./ia');
+const flac = require('./flac');
+const mappers = require('./mappers');
+const hosts = require('./hosts');
+const { decodeId } = require('./util');
 
 const VERSION = require('./package.json').version;
 
