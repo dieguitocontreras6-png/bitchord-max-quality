@@ -176,7 +176,7 @@ async function handleStream(req, res, url, base, rawId) {
   }
 
   const size = parseInt(file.size || '0', 10) || null;
-  const durationSec = require('./src/util').parseLength(file.length);
+  const durationSec = require('./util').parseLength(file.length);
   const bitrateKbps = size && durationSec ? Math.max(1, Math.round((size * 8) / 1000 / durationSec)) : null;
 
   const channels = verified ? verified.channels : null;
